@@ -34,7 +34,32 @@ function addManager() {
         {
             type: 'input',
             name: 'officeNumber',
-            message: "Manager office number?",
+            message: "Manager office number",
+        }
+    ])
+}
+
+function addEngineer() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Engineer Name",
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Engineer ID number",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Engineer email address",
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "Engineer github username",
         }
     ])
 }
