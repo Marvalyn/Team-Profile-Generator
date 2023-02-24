@@ -63,3 +63,28 @@ function addEngineer() {
         }
     ])
 }
+
+function addIntern() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Intern Name",
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Intern ID number",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Intern email address",
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Intern's school",
+        }
+    ])
+}
