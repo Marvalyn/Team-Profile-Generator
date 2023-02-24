@@ -24,7 +24,7 @@ class Employee {
     }
     //getRole() required -- returns 'Employee'
     getRole() {
-        return this.role
+        return "Employee"
     }
 }
 
