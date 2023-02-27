@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-
+const team = [];
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
 function addManager() {
@@ -18,7 +18,7 @@ function addManager() {
         {
             type: 'input',
             name: 'name',
-            message: "Manager Name",
+            message: "To get started please enter a Manager\'s name.",
         },
         {
             type: 'input',
@@ -35,7 +35,34 @@ function addManager() {
             name: 'officeNumber',
             message: "Manager office number",
         }
-    ])
+    ]).then(respone => {
+        team.push(new Manager(respone.name, respone.id, respone.email, respone.officeNumber));
+        addNextEmployee();
+    })
+}
+
+function addNextEmployee() {
+    inquirer.prompt([{
+        //choose employee type to add
+        type: 'list',
+        name: 'employeeType',
+        message: 'Which team member would you like to add?',
+        choices: ['Engineer', 'Intern', 'Finish'],
+    }
+    ]).then(response => {
+        // if (response.type === 'Manager') {
+        //     addManager();
+        // }
+        if (response.type === "Engineer") {
+            addEngineer();
+        } else if (response.type === "Intern") {
+            addIntern();
+            //if no other employee is added call the function to generate the HTML page
+        } else {
+            createPage();
+            console.log('Team Complete');
+        }
+    })
 }
 
 function addEngineer() {
@@ -60,7 +87,10 @@ function addEngineer() {
             name: 'github',
             message: "Engineer github username",
         }
-    ])
+    ]).then(respone => {
+        team.push(new Engineer(respone.name, respone.id, respone.email, response.github));
+        addNextEmployee();
+    })
 }
 
 function addIntern() {
@@ -83,11 +113,23 @@ function addIntern() {
         {
             type: 'input',
             name: 'school',
-            message: "Intern's school",
+            message: "Intern\'s school",
         }
-    ])
+    ]).then(respone => {
+        team.push(new Intern(respone.name, respone.id, respone.email, respone.school));
+        addNextEmployee();
+    })
 }
 
+function createPage() {
+    const generatedHTML = render(team);
+
+    fs.writeFile(outputPath, generatedHTML, (err) => 
+        err ? console.log(err) : console.log('You have successfully generated your team, check your output folder for the team.html file'));
+    
+}
+
+addManager();
 
 // call addManager() function first
 // add function to call inquirer prompt for user to choose which member they will add next, 
