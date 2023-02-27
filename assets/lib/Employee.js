@@ -12,19 +12,19 @@ class Employee {
 
     //getName() required
     getName() {
-        return this.name
+        return this.name;
     }
     //getID() required
     getId() {
-        return this.id
+        return this.id;
     }
     //getEmail() required
     getEmail() {
-        return this.email
+        return this.email;
     }
     //getRole() required -- returns 'Employee'
     getRole() {
-        return "Employee"
+        return "Employee";
     }
 }
 
