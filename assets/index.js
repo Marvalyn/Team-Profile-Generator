@@ -19,21 +19,53 @@ function addManager() {
             type: 'input',
             name: 'name',
             message: "To get started please enter a Manager\'s name.",
+            validate: managerNameInput=> {
+                if (managerNameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a name');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: "Manager ID number",
+            validate: managerIdInput=> {
+                if (managerIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an ID number');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: "Manager email address",
+            validate: managerEmailInput=> {
+                if (managerEmailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an email');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'officeNumber',
             message: "Manager office number",
+            validate: managerOfficeInput=> {
+                if (managerOfficeInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an office number');
+                    return false;
+                }
+            }
         }
     ]).then(response => {
         team.push(new Manager(response.name, response.id, response.email, response.officeNumber));
@@ -84,21 +116,53 @@ function addEngineer() {
             type: 'input',
             name: 'name',
             message: "Engineer Name",
+            validate: engineerNameInput=> {
+                if (engineerNameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a name');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: "Engineer ID number",
+            validate: engineerIdInput=> {
+                if (engineerIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an ID number');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: "Engineer email address",
+            validate: engineerEmailInput=> {
+                if (engineerEmailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an email');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'github',
             message: "Engineer github username",
+            validate: githubInput=> {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a github username');
+                    return false;
+                }
+            }
         }
     ]).then(response => {
         team.push(new Engineer(response.name, response.id, response.email, response.github));
@@ -112,21 +176,53 @@ function addIntern() {
             type: 'input',
             name: 'name',
             message: "Intern Name",
+            validate: internNameInput=> {
+                if (internNameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a name');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: "Intern ID number",
+            validate: internIdInput=> {
+                if (internIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an ID number');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: "Intern email address",
+            validate: internEmailInput=> {
+                if (internEmailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an email');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'school',
             message: "Intern\'s school",
+            validate: internSchoolInput=> {
+                if (internSchoolInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a school');
+                    return false;
+                }
+            }
         }
     ]).then(response => {
         team.push(new Intern(response.name, response.id, response.email, response.school));
