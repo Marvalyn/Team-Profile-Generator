@@ -5,6 +5,7 @@ class Intern extends Employee {
     constructor(name, id, email, school) {
         super(name, id, email);
         this.school = school;
+        // overriding role to be intern
         this.role = "Intern"
     }
     getSchool() {

@@ -12,7 +12,7 @@ const render = require("./src/page-template.js");
 
 const team = [];
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-
+// function to prompt for manager info
 function addManager() {
     inquirer.prompt([
         {
@@ -100,6 +100,7 @@ function addNextEmployee() {
     })
 }
 
+// function to prompt for engineer info
 function addEngineer() {
     inquirer.prompt([
         {
@@ -161,6 +162,7 @@ function addEngineer() {
     })
 }
 
+//function to prompt for intern info
 function addIntern() {
     inquirer.prompt([
         {
@@ -222,6 +224,7 @@ function addIntern() {
     })
 }
 
+//function to call for generating html page
 function createPage() {
     const generatedHTML = render(team);
 
@@ -232,9 +235,3 @@ function createPage() {
 
 addManager();
 
-// call addManager() function first
-// add function to call inquirer prompt for user to choose which member they will add next, 
-// if chosen engineer call addEngineer();
-// if chosen intern addIntern();
-// if chosen manager addManager();
-// add function to generate html file

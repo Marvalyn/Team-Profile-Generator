@@ -5,6 +5,7 @@ class Manager extends Employee {
     constructor(name, id, email, officeNumber) {
         super(name, id, email);
         this.officeNumber = officeNumber;
+        // overriding role to be manager
         this.role = "Manager"
     }
 

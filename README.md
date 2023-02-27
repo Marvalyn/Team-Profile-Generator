@@ -38,7 +38,8 @@
   # Contributors
   Contributors: 
   - Dan Mueller for the starter index.js and starter style.css starter code. 
-  - https://www.simplilearn.com/tutorials/javascript-tutorial/email-validation-in-javascript for email validation code
+  - https://www.simplilearn.com/tutorials/javascript-tutorial/email-validation-in-javascript for email validation code.
+  - Andres Jimenez for his tutoring and code review. 
 
   # Tests
   The following command is needed to run the test: npm run test
