@@ -36,7 +36,9 @@
   This project is currently unlicenses
 
   # Contributors
-  Contributors: Thanks to Dan Mueller for the starter index.js and starter style.css starter code.
+  Contributors: 
+  - Dan Mueller for the starter index.js and starter style.css starter code. 
+  - https://www.simplilearn.com/tutorials/javascript-tutorial/email-validation-in-javascript for email validation code
 
   # Tests
   The following command is needed to run the test: npm run test

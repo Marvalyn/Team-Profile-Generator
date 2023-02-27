@@ -33,10 +33,10 @@ function addManager() {
             name: 'id',
             message: "Manager ID number",
             validate: managerIdInput=> {
-                if (managerIdInput) {
+                if (!isNaN(parseInt(managerIdInput))) {
                     return true;
                 } else {
-                    console.log('Please enter an ID number');
+                    console.log('Please enter a number');
                     return false;
                 }
             }
@@ -45,8 +45,12 @@ function addManager() {
             type: 'input',
             name: 'email',
             message: "Manager email address",
-            validate: managerEmailInput=> {
-                if (managerEmailInput) {
+            //function ValidateEmail(managerEmailInput) {
+                // const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                //if (managerEmailInput.value.match(validRegex)) {
+            validate: function (managerEmailInput) {
+                const validRegex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if (managerEmailInput.match(validRegex)) {
                     return true;
                 } else {
                     console.log('Please enter an email');
@@ -59,10 +63,10 @@ function addManager() {
             name: 'officeNumber',
             message: "Manager office number",
             validate: managerOfficeInput=> {
-                if (managerOfficeInput) {
+                if (!isNaN(parseInt(managerOfficeInput))) {
                     return true;
                 } else {
-                    console.log('Please enter an office number');
+                    console.log('Please enter a number');
                     return false;
                 }
             }
@@ -130,10 +134,10 @@ function addEngineer() {
             name: 'id',
             message: "Engineer ID number",
             validate: engineerIdInput=> {
-                if (engineerIdInput) {
+                if (!isNaN(parseInt(engineerIdInput))) {
                     return true;
                 } else {
-                    console.log('Please enter an ID number');
+                    console.log('Please enter a number');
                     return false;
                 }
             }
@@ -142,8 +146,9 @@ function addEngineer() {
             type: 'input',
             name: 'email',
             message: "Engineer email address",
-            validate: engineerEmailInput=> {
-                if (engineerEmailInput) {
+            validate: function (engineerEmailInput) {
+                const validRegex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if (engineerEmailInput.match(validRegex)) {
                     return true;
                 } else {
                     console.log('Please enter an email');
@@ -190,10 +195,10 @@ function addIntern() {
             name: 'id',
             message: "Intern ID number",
             validate: internIdInput=> {
-                if (internIdInput) {
+                if (!isNaN(parseInt(internIdInput))) {
                     return true;
                 } else {
-                    console.log('Please enter an ID number');
+                    console.log('Please enter a number');
                     return false;
                 }
             }
@@ -202,8 +207,9 @@ function addIntern() {
             type: 'input',
             name: 'email',
             message: "Intern email address",
-            validate: internEmailInput=> {
-                if (internEmailInput) {
+            validate: function (internEmailInput) {
+                const validRegex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if (internEmailInput.match(validRegex)) {
                     return true;
                 } else {
                     console.log('Please enter an email');

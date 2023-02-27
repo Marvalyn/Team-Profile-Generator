@@ -18,3 +18,20 @@ class Manager extends Employee {
 }
 
 module.exports = Manager;
+
+/*class Manager extends Employee {
+    constructor(name, id, email, role, officeNumber) { 
+        super(name, id, email, role);
+
+        this.officeNumber = officeNumber;
+    }
+
+    getRole() {
+        return "Manager"
+    }
+
+    getOffice() {
+        return this.officeNumber
+    }
+}
+*/
