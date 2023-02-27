@@ -45,10 +45,7 @@ function addManager() {
             type: 'input',
             name: 'email',
             message: "Manager email address",
-            //function ValidateEmail(managerEmailInput) {
-            // const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            //if (managerEmailInput.value.match(validRegex)) {
-            validate: function (managerEmailInput) {
+                validate: managerEmailInput => {
                 const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
                 if (managerEmailInput.match(validRegex)) {
                     return true;
@@ -83,24 +80,13 @@ function addNextEmployee() {
         type: 'list',
         name: 'employeeType',
         message: 'Which team member would you like to add?',
-        choices: ['Engineer', 'Intern', 'Finish'],
+        choices: ['Manager','Engineer', 'Intern', 'Finish'],
     }
     ]).then(response => {
-        // if (response.type === 'Manager') {
-        //     addManager();
-        // }
-        // if (response.type === "Engineer") {
-        //     addEngineer();
-        // } else if (response.type === "Intern") {
-        //     addIntern();
-        //     //if no other employee is added call the function to generate the HTML page
-        // } else {
-        //     createPage();
-        //     console.log('Team Complete');
-        // }
         switch (response.employeeType) {
-            // case "Manager":
-            //     addManager();
+            case "Manager":
+                addManager();
+                break;
             case "Engineer":
                 addEngineer();
                 break;
@@ -146,7 +132,7 @@ function addEngineer() {
             type: 'input',
             name: 'email',
             message: "Engineer email address",
-            validate: function (engineerEmailInput) {
+            validate: engineerEmailInput => {
                 const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
                 if (engineerEmailInput.match(validRegex)) {
                     return true;
@@ -207,7 +193,7 @@ function addIntern() {
             type: 'input',
             name: 'email',
             message: "Intern email address",
-            validate: function (internEmailInput) {
+            validate: internEmailInput => {
                 const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
                 if (internEmailInput.match(validRegex)) {
                     return true;
