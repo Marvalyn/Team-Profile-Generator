@@ -35,8 +35,8 @@ function addManager() {
             name: 'officeNumber',
             message: "Manager office number",
         }
-    ]).then(respone => {
-        team.push(new Manager(respone.name, respone.id, respone.email, respone.officeNumber));
+    ]).then(response => {
+        team.push(new Manager(response.name, response.id, response.email, response.officeNumber));
         addNextEmployee();
     })
 }
@@ -53,14 +53,27 @@ function addNextEmployee() {
         // if (response.type === 'Manager') {
         //     addManager();
         // }
-        if (response.type === "Engineer") {
-            addEngineer();
-        } else if (response.type === "Intern") {
-            addIntern();
-            //if no other employee is added call the function to generate the HTML page
-        } else {
-            createPage();
-            console.log('Team Complete');
+        // if (response.type === "Engineer") {
+        //     addEngineer();
+        // } else if (response.type === "Intern") {
+        //     addIntern();
+        //     //if no other employee is added call the function to generate the HTML page
+        // } else {
+        //     createPage();
+        //     console.log('Team Complete');
+        // }
+        switch (response.employeeType) {
+            // case "Manager":
+            //     addManager();
+            case "Engineer":
+                addEngineer();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+            case "Finish":
+                createPage();
+                console.log('Team Complete')
         }
     })
 }
@@ -87,8 +100,8 @@ function addEngineer() {
             name: 'github',
             message: "Engineer github username",
         }
-    ]).then(respone => {
-        team.push(new Engineer(respone.name, respone.id, respone.email, response.github));
+    ]).then(response => {
+        team.push(new Engineer(response.name, response.id, response.email, response.github));
         addNextEmployee();
     })
 }
@@ -115,8 +128,8 @@ function addIntern() {
             name: 'school',
             message: "Intern\'s school",
         }
-    ]).then(respone => {
-        team.push(new Intern(respone.name, respone.id, respone.email, respone.school));
+    ]).then(response => {
+        team.push(new Intern(response.name, response.id, response.email, response.school));
         addNextEmployee();
     })
 }
@@ -124,9 +137,9 @@ function addIntern() {
 function createPage() {
     const generatedHTML = render(team);
 
-    fs.writeFile(outputPath, generatedHTML, (err) => 
+    fs.writeFile(outputPath, generatedHTML, (err) =>
         err ? console.log(err) : console.log('You have successfully generated your team, check your output folder for the team.html file'));
-    
+
 }
 
 addManager();
